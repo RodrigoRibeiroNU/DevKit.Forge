@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="DevKit.Forge.Application/DevKit.Forge.Application.csproj" />
+  <Project Path="DevKit.Forge.Domain/DevKit.Forge.Domain.csproj" />
+  <Project Path="DevKit.Forge.Infra.Data/DevKit.Forge.Infra.Data.csproj" />
+  <Project Path="DevKit.Forge.Services.Api/DevKit.Forge.Services.Api.csproj" />
+</Solution>
