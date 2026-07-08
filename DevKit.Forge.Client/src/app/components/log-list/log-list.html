@@ -1,0 +1,47 @@
+<div class="container">
+    <h2>Histórico de Análises (DevKit.Forge)</h2>
+  
+    <table mat-table [dataSource]="dadosLogs" class="mat-elevation-z8">
+      
+      <ng-container matColumnDef="nomeArquivo">
+        <th mat-header-cell *matHeaderCellDef> Nome do Arquivo </th>
+        <td mat-cell *matCellDef="let log"> {{log.nomeArquivo}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="dataProcessamento">
+        <th mat-header-cell *matHeaderCellDef> Data de Processamento </th>
+        <td mat-cell *matCellDef="let log"> {{log.dataProcessamento | date:'dd/MM/yyyy HH:mm'}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="qtdErros">
+        <th mat-header-cell *matHeaderCellDef> Erros Detetados </th>
+        <td mat-cell *matCellDef="let log">
+          <span [style.color]="log.qtdErros > 0 ? 'red' : '#666'" [style.font-weight]="log.qtdErros > 0 ? 'bold' : 'normal'">
+            <mat-icon *ngIf="log.qtdErros > 0" style="vertical-align: middle; font-size: 18px; width: 18px; height: 18px; color: red;">gavel</mat-icon>
+            {{log.qtdErros}} erros
+          </span>
+        </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="qtdAvisos">
+        <th mat-header-cell *matHeaderCellDef> Avisos </th>
+        <td mat-cell *matCellDef="let log">
+          <span [style.color]="log.qtdAvisos > 0 ? 'darkorange' : '#666'" [style.font-weight]="log.qtdAvisos > 0 ? 'bold' : 'normal'">
+            {{log.qtdAvisos}} avisos
+          </span>
+        </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="sucesso">
+        <th mat-header-cell *matHeaderCellDef> Status </th>
+        <td mat-cell *matCellDef="let log"> 
+          <mat-icon [style.color]="log.sucesso ? 'green' : 'red'">
+            {{ log.sucesso ? 'check_circle' : 'error' }}
+          </mat-icon>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="colunasExibidas"></tr>
+      <tr mat-row *matRowDef="let row; columns: colunasExibidas;"></tr>
+    </table>
+  </div>

@@ -1,0 +1,38 @@
+<section
+  aria-labelledby="upload-heading"
+  [attr.aria-busy]="enviando"
+>
+  <label
+    for="log-file-input"
+    class="upload-box"
+    style="border: 2px dashed #ccc; padding: 40px; text-align: center; border-radius: 8px; background-color: #f9f9f9; display: block; cursor: pointer;"
+  >
+    <h3 id="upload-heading">Arraste seus arquivos de log ou clique para selecionar</h3>
+    <p id="upload-description" style="color: #666;">Apenas arquivos de texto (.txt, .log)</p>
+
+    <span id="log-file-label">Selecionar arquivo de log</span>
+
+    <input
+      id="log-file-input"
+      type="file"
+      accept=".txt,.log"
+      (change)="onArquivoSelecionado($event)"
+      [disabled]="enviando"
+      aria-labelledby="upload-heading log-file-label"
+      [attr.aria-describedby]="mensagem ? 'upload-description upload-status' : 'upload-description'"
+      style="margin-top: 15px;"
+    >
+  </label>
+
+  <div
+    *ngIf="mensagem"
+    id="upload-status"
+    style="margin-top: 20px; font-weight: bold;"
+    [ngStyle]="{'color': enviando ? 'blue' : '#333'}"
+    [attr.role]="mensagem.startsWith('❌') ? 'alert' : 'status'"
+    [attr.aria-live]="mensagem.startsWith('❌') ? 'assertive' : 'polite'"
+    aria-atomic="true"
+  >
+    {{ mensagem }}
+  </div>
+</section>
