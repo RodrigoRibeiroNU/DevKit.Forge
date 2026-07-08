@@ -1,0 +1,15 @@
+C:\Projetos\DevKit.Forge\DevKit.Forge.Infra.Data\bin\Debug\net10.0\DevKit.Forge.Infra.Data.deps.json
+C:\Projetos\DevKit.Forge\DevKit.Forge.Infra.Data\bin\Debug\net10.0\DevKit.Forge.Infra.Data.dll
+C:\Projetos\DevKit.Forge\DevKit.Forge.Infra.Data\bin\Debug\net10.0\DevKit.Forge.Infra.Data.pdb
+C:\Projetos\DevKit.Forge\DevKit.Forge.Infra.Data\bin\Debug\net10.0\DevKit.Forge.Domain.dll
+C:\Projetos\DevKit.Forge\DevKit.Forge.Infra.Data\bin\Debug\net10.0\DevKit.Forge.Domain.pdb
+C:\Projetos\DevKit.Forge\DevKit.Forge.Infra.Data\obj\Debug\net10.0\DevKit.Forge.Infra.Data.csproj.AssemblyReference.cache
+C:\Projetos\DevKit.Forge\DevKit.Forge.Infra.Data\obj\Debug\net10.0\DevKit.Forge.Infra.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projetos\DevKit.Forge\DevKit.Forge.Infra.Data\obj\Debug\net10.0\DevKit.Forge.Infra.Data.AssemblyInfoInputs.cache
+C:\Projetos\DevKit.Forge\DevKit.Forge.Infra.Data\obj\Debug\net10.0\DevKit.Forge.Infra.Data.AssemblyInfo.cs
+C:\Projetos\DevKit.Forge\DevKit.Forge.Infra.Data\obj\Debug\net10.0\DevKit.Forge.Infra.Data.csproj.CoreCompileInputs.cache
+C:\Projetos\DevKit.Forge\DevKit.Forge.Infra.Data\obj\Debug\net10.0\DevKit.F.522DDD32.Up2Date
+C:\Projetos\DevKit.Forge\DevKit.Forge.Infra.Data\obj\Debug\net10.0\DevKit.Forge.Infra.Data.dll
+C:\Projetos\DevKit.Forge\DevKit.Forge.Infra.Data\obj\Debug\net10.0\refint\DevKit.Forge.Infra.Data.dll
+C:\Projetos\DevKit.Forge\DevKit.Forge.Infra.Data\obj\Debug\net10.0\DevKit.Forge.Infra.Data.pdb
+C:\Projetos\DevKit.Forge\DevKit.Forge.Infra.Data\obj\Debug\net10.0\ref\DevKit.Forge.Infra.Data.dll

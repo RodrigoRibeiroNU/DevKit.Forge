@@ -1,0 +1,16 @@
+@DevKit.Forge.Services.Api_HostAddress = http://localhost:5065
+
+GET {{DevKit.Forge.Services.Api_HostAddress}}/api/Logs
+Accept: application/json
+
+###
+
+POST {{DevKit.Forge.Services.Api_HostAddress}}/api/Logs/processar
+Content-Type: application/json
+
+{
+  "nomeArquivo": "exemplo.log",
+  "conteudoArquivo": "2024-01-01 10:00:00 [ERROR] Falha ao conectar\n2024-01-01 10:00:01 [WARN] Tentativa de reconexão"
+}
+
+###
