@@ -8,6 +8,7 @@ C:\Projetos\DevKit.Forge\DevKit.Forge.Application\obj\Debug\net10.0\DevKit.Forge
 C:\Projetos\DevKit.Forge\DevKit.Forge.Application\obj\Debug\net10.0\DevKit.Forge.Application.AssemblyInfoInputs.cache
 C:\Projetos\DevKit.Forge\DevKit.Forge.Application\obj\Debug\net10.0\DevKit.Forge.Application.AssemblyInfo.cs
 C:\Projetos\DevKit.Forge\DevKit.Forge.Application\obj\Debug\net10.0\DevKit.Forge.Application.csproj.CoreCompileInputs.cache
+C:\Projetos\DevKit.Forge\DevKit.Forge.Application\obj\Debug\net10.0\DevKit.Forge.Application.sourcelink.json
 C:\Projetos\DevKit.Forge\DevKit.Forge.Application\obj\Debug\net10.0\DevKit.F.4563B65A.Up2Date
 C:\Projetos\DevKit.Forge\DevKit.Forge.Application\obj\Debug\net10.0\DevKit.Forge.Application.dll
 C:\Projetos\DevKit.Forge\DevKit.Forge.Application\obj\Debug\net10.0\refint\DevKit.Forge.Application.dll

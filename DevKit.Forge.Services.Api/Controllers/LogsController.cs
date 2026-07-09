@@ -39,5 +39,27 @@ public class LogsController : ControllerBase
 
     }
 
+    [HttpGet("{id:guid}/exportar")]
+    public async Task<IActionResult> ExportarRelatorio(Guid id)
+    {
+        // Dispara a Query através do MediatR
+        var relatorio = await _mediator.Send(new ObterRelatorioAnaliseQuery(id));
+    
+        if (relatorio == null)
+        {
+            return NotFound(new { mensagem = "Análise de log não encontrada para o ID fornecido." });
+        }
+    
+        // Em vez de retornar um JSON comum na tela, vamos forçar o navegador
+        // a fazer o download de um arquivo .json estruturado
+        var nomeArquivoDownload = $"relatorio-{relatorio.NomeArquivo}.json";
+        
+        return File(
+            System.Text.Json.JsonSerializer.SerializeToUtf8Bytes(relatorio),
+            "application/json",
+            nomeArquivoDownload
+        );
+    }
+
 }
 
