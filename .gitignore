@@ -1,0 +1,8 @@
+## Ocultar binários e caches do .NET Core
+**/bin/
+**/obj/
+
+## Ocultar arquivos de configuração locais do Cursor / VS Code
+.base_history
+.cursor/
+.vscode/
