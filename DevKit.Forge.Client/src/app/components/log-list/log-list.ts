@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import { MatTableModule, MatTableDataSource } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { LogService, AnaliseLogDto } from '../../services/log';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-log-list',
   standalone: true,
-  imports: [CommonModule, MatTableModule, MatIconModule],
+  imports: [CommonModule, MatTableModule, MatIconModule, MatFormFieldModule, MatInputModule],
   templateUrl: './log-list.html',
   styleUrls: ['./log-list.scss']
 })
@@ -31,6 +33,24 @@ export class LogListComponent implements OnInit {
     this.logService.obterLogs().subscribe({
       next: (dados) => {
         this.dadosLogs.data = dados;
+        
+        this.dadosLogs.filterPredicate = (data: any, filter: string) => {
+          // Transformamos o termo digitado em minúsculo para busca case-insensitive
+          const termoBusca = filter.trim().toLowerCase();
+          
+          // Mapeamos explicitamente todos os campos que queremos permitir a busca
+          const nomeArquivo = data.nomeArquivo?.toLowerCase() || '';
+          const qtdErros = String(data.qtdErros);
+          const qtdAvisos = String(data.qtdAvisos);
+          const statusSucesso = data.sucesso ? 'sucesso' : 'falha';
+          
+          // Combinamos tudo em uma única string para a varredura
+          const dadosCombinados = `${nomeArquivo} ${qtdErros} erros ${qtdAvisos} avisos ${statusSucesso}`;
+          
+          // Retorna verdadeiro se o termo digitado estiver em qualquer parte dos dados combinados
+          return dadosCombinados.includes(termoBusca);
+        };
+
       },
       error: (erro) => {
         console.error('Erro ao carregar', erro);
@@ -62,5 +82,10 @@ export class LogListComponent implements OnInit {
         // Aqui você pode colocar um snackbar ou alerta de erro se quiser
       }
     });
+  }
+
+  aplicarFiltro(event: Event): void {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dadosLogs.filter = filterValue.trim().toLowerCase();
   }
 }

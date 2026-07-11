@@ -1,6 +1,12 @@
 <div class="container">
     <h2>Histórico de Análises (DevKit.Forge)</h2>
   
+    <!-- Campo de Filtro Dinâmico -->
+    <mat-form-field appearance="outline" style="width: 100%; margin-bottom: 16px;">
+      <mat-label>Filtrar análises (Ex: nome do arquivo, erros...)</mat-label>
+      <input matInput (keyup)="aplicarFiltro($event)" placeholder="Digite o termo para buscar..." #input>
+    </mat-form-field>
+    
     <table mat-table [dataSource]="dadosLogs" class="mat-elevation-z8">
       
       <ng-container matColumnDef="nomeArquivo">
