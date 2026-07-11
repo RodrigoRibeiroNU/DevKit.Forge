@@ -59,4 +59,10 @@
       <tr mat-header-row *matHeaderRowDef="colunasExibidas"></tr>
       <tr mat-row *matRowDef="let row; columns: colunasExibidas;"></tr>
     </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                   pageSize="5"
+                   showFirstLastButtons
+                   aria-label="Selecione a página de logs">
+    </mat-paginator>
   </div>
