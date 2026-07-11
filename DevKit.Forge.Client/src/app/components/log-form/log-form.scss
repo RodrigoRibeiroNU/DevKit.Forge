@@ -1,0 +1,103 @@
+.upload-container {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06); /* Cria o efeito flutuante 3D idêntico ao objetivo */
+    padding: 40px 24px;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    margin: 32px auto;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+  
+    // A linha tracejada agora fica contida de forma elegante dentro do card flutuante
+    &::before {
+      content: '';
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      right: 12px;
+      bottom: 12px;
+      border: 1.5px dashed #dee2e6;
+      border-radius: 8px;
+      pointer-events: none;
+      transition: border-color 0.3s ease;
+    }
+  
+    &:hover {
+      transform: translateY(-2px); /* Dá um leve feedback de elevação ao passar o mouse */
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.09);
+  
+      &::before {
+        border-color: #a8b2bc; /* Escurece a linha tracejada no hover */
+      }
+    }
+  
+    .upload-icon {
+      font-size: 44px;
+      height: 44px;
+      width: 44px;
+      color: #78909c;
+      margin-bottom: 12px;
+      z-index: 1;
+    }
+  
+    .upload-text-main {
+      font-size: 15px;
+      font-weight: 500;
+      color: #495057;
+      margin-bottom: 6px;
+      z-index: 1;
+    }
+  
+    .upload-text-sub {
+      font-size: 13px;
+      color: #6c757d;
+      margin-bottom: 20px;
+      z-index: 1;
+    }
+  
+    .btn-upload-selecionar {
+        z-index: 1;
+        font-weight: 500;
+        font-size: 14px;
+        height: 40px !important;
+        padding: 0 24px !important;
+        border-radius: 50px !important; /* Transforma o botão em uma pílula perfeita */
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        box-shadow: 0 4px 12px rgba(var(--mat-sys-primary), 0.2); /* Sombra sutil baseada na cor primária */
+        transition: all 0.2s ease;
+    
+        mat-icon {
+          font-size: 18px;
+          width: 18px;
+          height: 18px;
+          margin: 0;
+        }
+    
+        &:hover:not([disabled]) {
+          transform: scale(1.03); /* Dá um feedback sutil ao passar o mouse */
+        }
+      }  }
+  
+  .input-file-oculto {
+    display: none;
+  }
+  
+  /* Estilização profissional para a pílula de sucesso/erro que fica abaixo do card */
+  #upload-status {
+    max-width: 1200px;
+    margin: 20px auto 0 auto;
+    font-size: 14px;
+    font-weight: 600 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }

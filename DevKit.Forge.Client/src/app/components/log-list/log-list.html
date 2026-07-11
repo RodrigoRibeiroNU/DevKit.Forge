@@ -1,56 +1,59 @@
-<div class="container">
-    <h2>Histórico de Análises (DevKit.Forge)</h2>
+<div class="list-container">
+  <h2>Histórico de Análises (DevKit.Forge)</h2>
+
+  <!-- Campo de Filtro Dinâmico Minimalista -->
+  <mat-form-field appearance="fill" class="filtro-busca-moderno">
+    <mat-icon matPrefix>search</mat-icon>
+    <input matInput (keyup)="aplicarFiltro($event)" placeholder="Filtrar análises" #input>
+  </mat-form-field>
   
-    <!-- Campo de Filtro Dinâmico -->
-    <mat-form-field appearance="outline" style="width: 100%; margin-bottom: 16px;">
-      <mat-label>Filtrar análises (Ex: nome do arquivo, erros...)</mat-label>
-      <input matInput (keyup)="aplicarFiltro($event)" placeholder="Digite o termo para buscar..." #input>
-    </mat-form-field>
-    
-    <table mat-table [dataSource]="dadosLogs" class="mat-elevation-z8">
+  <div class="table-card-wrapper">
+    <table mat-table [dataSource]="dadosLogs" class="tabela-moderna">
       
       <ng-container matColumnDef="nomeArquivo">
         <th mat-header-cell *matHeaderCellDef> Nome do Arquivo </th>
-        <td mat-cell *matCellDef="let log"> {{log.nomeArquivo}} </td>
+        <td mat-cell *matCellDef="let log" class="col-arquivo"> {{log.nomeArquivo}} </td>
       </ng-container>
-  
+
       <ng-container matColumnDef="dataProcessamento">
         <th mat-header-cell *matHeaderCellDef> Data de Processamento </th>
         <td mat-cell *matCellDef="let log"> {{log.dataProcessamento | date:'dd/MM/yyyy HH:mm'}} </td>
       </ng-container>
-  
-      <ng-container matColumnDef="qtdErros">
-        <th mat-header-cell *matHeaderCellDef> Erros Detetados </th>
-        <td mat-cell *matCellDef="let log">
-          <span [style.color]="log.qtdErros > 0 ? 'red' : '#666'" [style.font-weight]="log.qtdErros > 0 ? 'bold' : 'normal'">
-            <mat-icon *ngIf="log.qtdErros > 0" style="vertical-align: middle; font-size: 18px; width: 18px; height: 18px; color: red;">gavel</mat-icon>
-            {{log.qtdErros}} erros
-          </span>
-        </td>
-      </ng-container>
-  
-      <ng-container matColumnDef="qtdAvisos">
-        <th mat-header-cell *matHeaderCellDef> Avisos </th>
-        <td mat-cell *matCellDef="let log">
-          <span [style.color]="log.qtdAvisos > 0 ? 'darkorange' : '#666'" [style.font-weight]="log.qtdAvisos > 0 ? 'bold' : 'normal'">
-            {{log.qtdAvisos}} avisos
-          </span>
-        </td>
-      </ng-container>
       
       <ng-container matColumnDef="sucesso">
         <th mat-header-cell *matHeaderCellDef> Status </th>
-        <td mat-cell *matCellDef="let log"> 
-          <mat-icon [style.color]="log.sucesso ? 'green' : 'red'">
+        <td mat-cell *matCellDef="let log" class="col-status"> 
+          <mat-icon [ngClass]="log.sucesso ? 'status-valido' : 'status-invalido'">
             {{ log.sucesso ? 'check_circle' : 'error' }}
           </mat-icon>
         </td>
       </ng-container>
 
+      <ng-container matColumnDef="qtdErros">
+        <th mat-header-cell *matHeaderCellDef> Erros Detetados </th>
+        <td mat-cell *matCellDef="let log">
+          <div class="badge-chip" [ngClass]="log.qtdErros > 0 ? 'chip-erro' : 'chip-neutro'">
+            <mat-icon *ngIf="log.qtdErros > 0">warning_amber</mat-icon>
+            {{log.qtdErros}} erros
+          </div>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="qtdAvisos">
+        <th mat-header-cell *matHeaderCellDef> Avisos </th>
+        <td mat-cell *matCellDef="let log">
+          <div class="badge-chip" [ngClass]="log.qtdAvisos > 0 ? 'chip-aviso' : 'chip-neutro'">
+            {{log.qtdAvisos}} avisos
+          </div>
+        </td>
+      </ng-container>
+
       <ng-container matColumnDef="acoes">
-        <th mat-header-cell *matHeaderCellDef style="text-align: center; width: 80px;"> Ações </th>
-        <td mat-cell *matCellDef="let log" style="text-align: center;">
-          <button mat-icon-button color="accent" (click)="baixarRelatorio(log.id, log.nomeArquivo)" title="Exportar Relatório JSON">
+        <th mat-header-cell *matHeaderCellDef class="col-acoes header-acoes">
+          <span>File Details</span>          
+        </th>
+        <td mat-cell *matCellDef="let log" class="col-acoes">
+          <button mat-icon-button (click)="baixarRelatorio(log.id, log.nomeArquivo)" title="Exportar Relatório JSON" class="btn-download">
             <mat-icon>download</mat-icon>
           </button>
         </td>
@@ -66,3 +69,4 @@
                    aria-label="Selecione a página de logs">
     </mat-paginator>
   </div>
+</div>

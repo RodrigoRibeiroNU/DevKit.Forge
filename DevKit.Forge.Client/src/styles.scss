@@ -16,9 +16,10 @@ html {
 
 body {
   color-scheme: light;
-  background-color: var(--mat-sys-surface);
+  background-color: #f8f9fa !important;
   color: var(--mat-sys-on-surface);
   font: var(--mat-sys-body-medium);
+  font-family: 'Roboto', sans-serif;
   margin: 0;
   height: 100%;
 }
