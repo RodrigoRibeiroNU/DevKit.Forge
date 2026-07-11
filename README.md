@@ -104,6 +104,37 @@ DevKit.Forge/
 
 ---
 
+## 🗺️ Roadmap (Próximos Passos de Evolução)
+
+O **DevKit.Forge** é um ecossistema corporativo em constante evolução. Para consolidar sua robustez arquitetural e entregar inteligência analítica de dados a nível sênior, as seguintes melhorias, módulos e refatorações estão planejados para as próximas versões do projeto:
+
+### 🧠 Fase 1: Inteligência Artificial & Diagnósticos Analíticos
+- [ ] **Módulo de IA Integrado:** Implementação de engenharia de prompts refinada utilizando modelos de linguagem locais (SLMs via Ollama) para análise preditiva, diagnóstico automatizado de causas-raiz de falhas e sugestões automáticas de correção diretamente na interface.
+- [ ] **Análise Heurística Avançada:** Implementação de algoritmos de agrupamento baseados em expressões regulares dinâmicas para consolidar milhões de linhas de *Stack Traces* idênticas em incidentes únicos, evitando sobrecarga visual.
+
+### 🗄️ Fase 2: Persistência Robusta & Arquitetura de Dados
+- [ ] **Persistência de Dados Relacional:** Integração do Entity Framework Core acoplado ao banco de dados PostgreSQL para armazenar o histórico consolidado de auditorias e o perfil consolidado de métricas por arquivo de log.
+- [ ] **Camada de Armazenamento de Arquivos (Blob Storage):** Migração do sistema de arquivos temporários local para uma infraestrutura desacoplada baseada em provedores de nuvem (*Object/Blob Storage* como AWS S3 ou Azure Blob), salvando os arquivos de log originais com total segurança.
+- [ ] **Paginação Real no Servidor (Server-side Pagination):** Refatoração da listagem do Angular para que as operações de ordenação, paginação e filtragem preditiva ocorram no nível do banco de dados (API), permitindo o tratamento fluido de milhões de registros históricos.
+
+### 📊 Fase 3: Dashboards de Governança & Exportação Avançada
+- [ ] **Painel de Métricas (Dashboard):** Criação de uma central de monitoramento de saúde de infraestrutura no frontend contendo gráficos interativos de alta performance (via Apache ECharts ou Chart.js), ilustrando a evolução temporal de erros e a integridade geral dos sistemas.
+- [ ] **Exportação Avançada e Corporativa:** Suporte para novos formatos de relatórios analíticos de auditoria, gerando de forma assíncrona arquivos PDF estruturados e planilhas Excel (.xlsx) altamente estilizadas e formatadas com dados consolidados.
+
+### ⚡ Fase 4: Comunicação Síncrona & Webhooks
+- [ ] **Alertas em Tempo Real:** Criação de um barramento de notificações orientadas a eventos para disparar e-mails automatizados e ganchos web (*Webhooks*) customizáveis para plataformas como Slack e Discord sempre que falhas críticas ou instabilidades sejam detectadas.
+- [ ] **Streaming de Processamento com WebSockets:** Integração do ASP.NET Core SignalR acoplado ao frontend para fornecer feedback em tempo real (barras de progresso reais linha por linha) durante a leitura assíncrona de arquivos de log pesados que superem a casa dos gigabytes.
+
+---
+## 👤 Autor
+
+Desenvolvido por **Rodrigo Ribeiro**. Se gostou do projeto ou quer conversar sobre soluções arquiteturais com .NET e Angular, sinta-se à vontade para entrar em contacto!
+
+* **E-mail:** rodrigong@gmail.com
+* **LinkedIn:** [Conecte-se comigo no LinkedIn](https://linkedin.com/in/SEU-LINKEDIN-AQUI)
+
+---
+
 ## 📄 Licença
 
 Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
