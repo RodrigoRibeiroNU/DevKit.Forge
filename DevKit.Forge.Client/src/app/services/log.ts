@@ -39,4 +39,11 @@ export class LogService {
   nottificarLogAtualizacao() {
     this.logAtualizadoSource.next();
   }
+
+  exportarRelatorio(id: string): Observable<Blob> {
+    // Passamos o responseType: 'blob' para o Angular entender que virá um arquivo binário, não um JSON comum
+    return this.http.get(`${this.apiUrl}/${id}/exportar`, {
+      responseType: 'blob'
+    });
+  }
 }

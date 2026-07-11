@@ -2,7 +2,8 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using DevKit.Forge.Application.Logs.Commands;
 using DevKit.Forge.Application.Logs.Queries;
-
+using System.Text.Json;
+using System.Text.Encodings.Web;
 namespace DevKit.Forge.Services.Api.Controllers;
 
 [ApiController]
@@ -43,22 +44,25 @@ public class LogsController : ControllerBase
     public async Task<IActionResult> ExportarRelatorio(Guid id)
     {
         // Dispara a Query através do MediatR
-        var relatorio = await _mediator.Send(new ObterRelatorioAnaliseQuery(id));
+        var resultadoDto = await _mediator.Send(new ObterRelatorioAnaliseQuery(id));
     
-        if (relatorio == null)
+        if (resultadoDto == null)
         {
             return NotFound(new { mensagem = "Análise de log não encontrada para o ID fornecido." });
         }
     
-        // Em vez de retornar um JSON comum na tela, vamos forçar o navegador
-        // a fazer o download de um arquivo .json estruturado
-        var nomeArquivoDownload = $"relatorio-{relatorio.NomeArquivo}.json";
+        var opcoesSerializacao = new JsonSerializerOptions
+        {
+            Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping, // 👈 A mágica para aceitar acentos aqui!
+            WriteIndented = true // Deixa o JSON formatado com quebras de linha e recuos (bonito para leitura)
+        };
         
-        return File(
-            System.Text.Json.JsonSerializer.SerializeToUtf8Bytes(relatorio),
-            "application/json",
-            nomeArquivoDownload
-        );
+        // 3. Serializamos o objeto para string usando as opções configuradas
+        string jsonString = JsonSerializer.Serialize(resultadoDto, opcoesSerializacao);
+        byte[] bytesArquivo = System.Text.Encoding.UTF8.GetBytes(jsonString);
+        
+        // 4. Retorna o arquivo limpo para o Angular
+        return File(bytesArquivo, "application/json", $"relatorio-{resultadoDto.NomeArquivo}.json");
     }
 
 }
